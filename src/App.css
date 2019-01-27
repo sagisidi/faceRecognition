@@ -1,0 +1,13 @@
+body{
+  background:   linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+}
+
+button {
+	cursor :pointer;
+	border:1px solid gray;
+}

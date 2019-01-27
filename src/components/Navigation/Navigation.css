@@ -1,0 +1,38 @@
+
+.nav ul {
+	display: flex;
+	list-style: none;
+    width: 100%;
+    justify-content: flex-end;
+	padding:0;
+}
+
+.nav ul li{
+	display: inline;
+	margin-inline-end:1%;
+	text-decoration: underline;
+
+}
+.nav ul li a{
+  color:black;
+}
+
+.nav ul img {
+	margin-inline-start: 1%;
+	margin-inline-end: auto;
+}
+
+.logo{
+    height: 50px;
+    margin-top: 7px;
+}
+
+@media screen and (max-width: 767px) {
+  .nav ul li {
+   font-size: 1rem;
+  }
+  ul img{
+  	width: 20%;
+    height: 20%;
+  }
+}
