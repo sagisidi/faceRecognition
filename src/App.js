@@ -7,7 +7,7 @@ import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
 import Rank from './components/Rank/Rank'; 
 import {changeSearchFieldAction,onSubmitAction,signInOutAction} from './components/actions'
-import { BrowserRouter as Router, Route,Redirect  } from "react-router-dom";
+import { BrowserRouter as Router, Route  } from "react-router-dom";
 
 
 import './App.css';
@@ -38,9 +38,8 @@ class App extends Component {
 
 
   render() {
-    const {textField ,box,isPending, loggedIn,inputChange ,
-        onSubmit,signInOut,loadUser,user } =  this.props;
-    const userRegister = this.props.user.id!=="";
+    const {textField ,box, loggedIn,inputChange ,
+        onSubmit,signInOut,user } =  this.props;
     console.log(user);
     return (
       <div className="App">
@@ -49,7 +48,7 @@ class App extends Component {
         <Router>
           <div>
 
-            <Navigation  loggedIn={loggedIn} signInOut={signInOut.bind(this)} />
+            <Navigation  loggedIn={loggedIn} />
 
             <Route path="/Register" render={props=>(
                   <Register {...props} 

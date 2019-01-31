@@ -7,7 +7,7 @@ import Logo from './logo_small.png';
 const register = () => <h2>Sign in</h2>;
 */
 
-const Navigation =  ({loggedIn,signInOut}) =>{
+const Navigation =  ({loggedIn}) =>{
 		if (loggedIn && window.location.href.includes('profile') ) {
 			return (
 				<div className="nav">

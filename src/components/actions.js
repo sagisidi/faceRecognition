@@ -8,12 +8,6 @@ import {
 		UPDATE_ENTRIES
 		} from './constants.js';
 
-import Clarifai from 'clarifai';
-
-
-  const app = new Clarifai.App({
-   apiKey: 'fa20fa9c06214d298d7cff49b25767b1'
-  });
 
 
 export const changeSearchFieldAction = (text) => ({
@@ -25,10 +19,17 @@ export const changeSearchFieldAction = (text) => ({
 
 export const onSubmitAction = () =>(dispatch,getState) =>{
 	dispatch({type:FACE_RECOGNITION_PENDING});
-    app.models.predict(Clarifai.FACE_DETECT_MODEL,getState().changeSearchField.textField )
-    .then((response) =>{
-    		if(response){
-    			fetch('http://localhost:3002/image',{
+	fetch('https://calm-wildwood-45339.herokuapp.com/imageUrl',{
+	method:'post',
+	headers:{'Content-Type':'application/json'},
+	body:JSON.stringify({
+		input:getState().changeSearchField.textField
+		})
+	})
+	.then(response => response.json() )
+    .then(response =>{
+    		if(response.outputs){
+    			fetch('https://calm-wildwood-45339.herokuapp.com/image',{
 				method:'put',
 				headers:{'Content-Type':'application/json'},
 				body:JSON.stringify({

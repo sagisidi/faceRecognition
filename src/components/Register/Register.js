@@ -44,7 +44,7 @@ class  Register extends React.Component {
 	}
 	sendData(){
 		if(this.checkPass()){
-			fetch('http://localhost:3002/Register',{
+			fetch('https://calm-wildwood-45339.herokuapp.com/Register',{
 				method:'post',
 				headers:{'Content-Type':'application/json'},
 				body:JSON.stringify({
@@ -56,7 +56,7 @@ class  Register extends React.Component {
 			})
 		    .then(response => response.json())
 		    .then(user =>{
-		    		if(user){
+		    		if(user.id){
 		    			this.props.signInOut(user);
 		    			this.props.history.push('/profile/'+user.id)
 
